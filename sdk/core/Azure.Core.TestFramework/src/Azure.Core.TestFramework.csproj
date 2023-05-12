@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>$(RequiredTargetFrameworks);net47</TargetFrameworks>
+    <TargetFrameworks>$(RequiredTargetFrameworks)</TargetFrameworks>
     <IncludeGeneratorSharedCode>true</IncludeGeneratorSharedCode>
     <IncludeOperationsSharedSource>true</IncludeOperationsSharedSource>
   </PropertyGroup>

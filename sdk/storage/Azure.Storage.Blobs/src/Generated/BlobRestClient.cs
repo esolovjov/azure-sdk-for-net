@@ -146,6 +146,7 @@ namespace Azure.Storage.Blobs
                         return ResponseWithHeaders.FromValue(value, headers, message.Response);
                     }
                 case 304:
+                case 404:
                     return ResponseWithHeaders.FromValue((Stream)null, headers, message.Response);
                 default:
                     throw await ClientDiagnostics.CreateRequestFailedExceptionAsync(message.Response).ConfigureAwait(false);
@@ -183,6 +184,7 @@ namespace Azure.Storage.Blobs
                         return ResponseWithHeaders.FromValue(value, headers, message.Response);
                     }
                 case 304:
+                case 404:
                     return ResponseWithHeaders.FromValue((Stream)null, headers, message.Response);
                 default:
                     throw ClientDiagnostics.CreateRequestFailedException(message.Response);
