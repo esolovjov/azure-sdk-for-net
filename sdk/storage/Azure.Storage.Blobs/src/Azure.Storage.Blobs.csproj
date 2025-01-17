@@ -1,16 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>$(RequiredTargetFrameworks);netstandard2.1;net6.0</TargetFrameworks>
+    <TargetFrameworks>$(RequiredTargetFrameworks)</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyTitle>Microsoft Azure.Storage.Blobs client library</AssemblyTitle>
-    <Version>12.23.0</Version>
-    <!--The ApiCompatVersion is managed automatically and should not generally be modified manually.-->
-    <ApiCompatVersion>12.22.2</ApiCompatVersion>
+    <AssemblyTitle>Microsoft SettingsStore.Azure.Storage.Blobs client library</AssemblyTitle>
+    <Version>12.23.1</Version>
     <DefineConstants>BlobSDK;$(DefineConstants)</DefineConstants>
-    <PackageTags>Microsoft Azure Storage Blobs;Microsoft;Azure;Blobs;Blob;Storage;StorageScalable;$(PackageCommonTags)</PackageTags>
+    <PackageTags>Teams Settings Store;Microsoft Azure Storage Blobs;Microsoft;Azure;Blobs;Blob;Storage;StorageScalable;$(PackageCommonTags)</PackageTags>
     <DisableEnhancedAnalysis>true</DisableEnhancedAnalysis>
+    <PackageId>SettingsStore.Azure.Storage.Blobs</PackageId>    
     <Description>
+      Microsoft experimental version of Azure Storage Blobs client SDK fixed for not throwing exception on 404 not found.
       This client library enables working with the Microsoft Azure Storage Blob service for storing binary and text data.
       For this release see notes - https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/README.md and https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
       in addition to the breaking changes https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/BreakingChanges.txt
@@ -29,10 +29,8 @@
     <Compile Include="$(AzureStorageSharedSources)AesGcm\**\*.cs" LinkBase="Shared" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Azure.Storage.Common" VersionOverride="12.22.0" />    
     <PackageReference Include="System.Text.Json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\Azure.Storage.Common\src\Azure.Storage.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(AzureCoreSharedSources)AuthorizationChallengeParser.cs" LinkBase="Shared\Core" />
@@ -83,7 +81,6 @@
     <Compile Include="$(AzureStorageSharedSources)StorageCrc64Calculator.cs" LinkBase="Shared" />
     <Compile Include="$(AzureStorageSharedSources)StorageCrc64Composer.cs" LinkBase="Shared" />
     <Compile Include="$(AzureStorageSharedSources)StorageExtensions.cs" LinkBase="Shared" />
-    <Compile Include="$(AzureStorageSharedSources)StorageExceptionExtensions.cs" LinkBase="Shared" />
     <Compile Include="$(AzureStorageSharedSources)StorageRequestValidationPipelinePolicy.cs" LinkBase="Shared" />
     <Compile Include="$(AzureStorageSharedSources)StorageProgressExtensions.cs" LinkBase="Shared" />
     <Compile Include="$(AzureStorageSharedSources)StorageSharedKeyCredentialInternals.cs" LinkBase="Shared" />

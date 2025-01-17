@@ -150,6 +150,7 @@ namespace Azure.Storage.Blobs
                         return ResponseWithHeaders.FromValue(value, headers, message.Response);
                     }
                 case 304:
+                case 404:
                     return ResponseWithHeaders.FromValue((Stream)null, headers, message.Response);
                 default:
                     throw new RequestFailedException(message.Response);
@@ -188,6 +189,7 @@ namespace Azure.Storage.Blobs
                         return ResponseWithHeaders.FromValue(value, headers, message.Response);
                     }
                 case 304:
+                case 404:
                     return ResponseWithHeaders.FromValue((Stream)null, headers, message.Response);
                 default:
                     throw new RequestFailedException(message.Response);
